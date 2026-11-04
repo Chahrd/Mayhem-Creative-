@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+
+<title>Mayhem Creative | Digital Experiences</title>
+<meta name="description" content="Mayhem Creative builds modern, responsive websites for businesses, brands and creative professionals.">
+
+<style>
+:root {
+  --bg: #080b18;
+  --surface: #10152a;
+  --purple: #873cff;
+  --cyan: #00d9ff;
+  --white: #f7f8ff;
+  --muted: #a3a9bd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,11,24,.95);
+  border-bottom: 1px solid #20243b;
+  backdrop-filter: blur(12px);
+}
+
+nav {
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo {
+  width: 43px;
+  height: 43px;
+}
+
+.brand span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 8px;
+  background: linear-gradient(110deg, var(--purple), #6330df);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+}
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 85px 0;
+  background:
+    radial-gradient(ellipse at 85% 35%, #47218b55, transparent 40%),
+    radial-gradient(ellipse at 10% 80%, #008caa22, transparent 40%);
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 13px;
+  border: 1px solid #873cff66;
+  border-radius: 30px;
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 8vw, 75px);
+  line-height: 1.12;
+  max-width: 800px;
+  margin-bottom: 23px;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.hero p {
+  max-width: 590px;
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+section { padding: 85px 0; }
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(29px, 5vw, 42px);
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.services-grid,
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card,
+.project-card {
+  background: var(--surface);
+  border: 1px solid #252a43;
+  border-radius: 14px;
+  padding: 25px;
+  transition: .3s;
+}
+
+.service-card:hover,
+.project-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 32px;
+  margin-bottom: 17px;
+}
+
+.service-card h3,
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.service-card p,
+.project-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-preview {
+  min-height: 150px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #20134c, #07536b);
+}
+
+.project-card:nth-child(2) .project-preview {
+  background: linear-gradient(135deg, #44205d, #172a49);
+}
+
+.project-card:nth-child(3) .project-preview {
+  background: linear-gradient(135deg, #113b50, #34205e);
+}
+
+.project-label {
+  display: inline-block;
+  color: var(--cyan);
+  font-size: 11px;
+  margin-bottom: 9px;
+  letter-spacing: 1px;
+}
+
+.about {
+  background: #0d1122;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.about-content h2 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+
+.about-box {
+  background: linear-gradient(140deg, #48228a, #101d3d);
+  border-radius: 18px;
+  padding: 45px 25px;
+  text-align: center;
+  border: 1px solid #7350c7;
+}
+
+.about-box strong {
+  display: block;
+  font-size: 55px;
+  color: var(--cyan);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.process-item {
+  padding: 20px;
+  border-left: 2px solid var(--purple);
+  background: var(--surface);
+}
+
+.process-item span {
+  color: var(--cyan);
+  font-size: 13px;
+}
+
+.process-item h3 { margin: 10px 0; }
+
+.process-item p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contact {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #5420a044, transparent 65%);
+}
+
+.contact h2 {
+  font-size: clamp(30px, 5vw, 45px);
+  margin-bottom: 15px;
+}
+
+.contact p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+footer {
+  padding: 30px 0;
+  border-top: 1px solid #252a43;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer .brand {
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+@media(max-width: 750px) {
+  .menu-btn { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: #10152a;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links.active { display: flex; }
+
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section { padding: 65px 0; }
+}
+
+@media(max-width: 400px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">
+        <svg class="logo" viewBox="0 0 100 100"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 82 V18 L50 57 L88 18 V82"
+                fill="none" stroke="#873cff"
+                stroke-width="12" stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M50 57 L50 82"
+                fill="none" stroke="#00d9ff"
+                stroke-width="12" stroke-linecap="round"/>
+        </svg>
+        MAYHEM <span>CREATIVE</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn"
+              aria-label="Toggle navigation">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <span class="tag">WELCOME TO MAYHEM CREATIVE</span>
+
+    <h1>
+      We turn ideas into
+      <span class="gradient">digital experiences.</span>
+    </h1>
+
+    <p>
+      We create modern, beautiful and responsive websites
+      that help businesses, brands and individuals stand out
+      in the digital world.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn">Start a Project →</a>
+      <a href="#portfolio" class="btn btn-outline">
+        Explore Our Work
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <span class="tag">WHAT WE DO</span>
+      <h2>Our <span class="gradient">Services</span></h2>
+      <p>Creative digital solutions designed for your goals.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>
+          Modern, responsive websites for businesses,
+          organisations and personal brands.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Website Design</h3>
+        <p>
+          Clean and attractive designs that make
+          your brand memorable.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Landing Pages</h3>
+        <p>
+          Focused pages for products, events,
+          campaigns and promotions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-heading">
+      <span class="tag">OUR WORK</span>
+      <h2>Selected <span class="gradient">Projects</span></h2>
+      <p>Explore some of our website concepts.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <article class="project-card">
+        <div class="project-preview">MAYHEM BITES</div>
+        <span class="project-label">RESTAURANT CONCEPT</span>
+        <h3>Restaurant Website</h3>
+        <p>
+          A modern food business website concept
+          with a menu and customer enquiry experience.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <div class="project-preview">URBAN VOGUE</div>
+        <span class="project-label">FASHION CONCEPT</span>
+        <h3>Fashion Boutique</h3>
+        <p>
+          A stylish catalogue concept for a
+          fashion and clothing business.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <div class="project-preview">CREATIVE TALENT</div>
+        <span class="project-label">PORTFOLIO CONCEPT</span>
+        <h3>Personal Portfolio</h3>
+        <p>
+          A professional online presence for
+          creative professionals and individuals.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-content">
+
+      <div>
+        <span class="tag">ABOUT US</span>
+        <h2>Creativity meets <span class="gradient">technology.</span></h2>
+
+        <p>
+          Mayhem Creative is a digital development brand
+          focused on helping businesses and individuals
+          establish their online presence.
+        </p>
+
+        <p>
+          We believe every idea deserves a digital space
+          where it can grow, connect and make an impact.
+        </p>
+
+        <a href="#contact" class="btn">Let's Work Together</a>
+      </div>
+
+      <div class="about-box">
+        <strong>MC</strong>
+        <h3>Ideas. Design. Digital.</h3>
+        <p>We turn ideas into digital experiences.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-heading">
+      <span class="tag">HOW WE WORK</span>
+      <h2>Our <span class="gradient">Process</span></h2>
+      <p>Simple steps from idea to finished website.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-item">
+        <span>STEP 01</span>
+        <h3>Discover</h3>
+        <p>We understand your business and goals.</p>
+      </div>
+
+      <div class="process-item">
+        <span>STEP 02</span>
+        <h3>Design</h3>
+        <p>We plan the look and structure.</p>
+      </div>
+
+      <div class="process-item">
+        <span>STEP 03</span>
+        <h3>Develop</h3>
+        <p>We build and test your website.</p>
+      </div>
+
+      <div class="process-item">
+        <span>STEP 04</span>
+        <h3>Launch</h3>
+        <p>We prepare your website for publication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="tag">LET'S CREATE SOMETHING</span>
+
+    <h2>Have a project in mind?</h2>
+
+    <p>
+      Let's discuss your ideas and build something
+      meaningful for your business.
+    </p>
+
+    <a class="btn" id="whatsappBtn"
+       href="https://wa.me/2349032513069"
+       target="_blank" rel="noopener">
+      Contact Us on WhatsApp →
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="brand">MAYHEM <span>CREATIVE</span></div>
+    <p>We turn ideas into digital experiences.</p>
+    <p>© <span id="year"></span> Mayhem Creative. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
